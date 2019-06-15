@@ -11,6 +11,7 @@ Each feature can has properties, geometry and a style.
 File `test.geowiki`:
 ```json
 {
+  "geowiki-version": "0.1",
   "type": "FeatureCollection",
   "properties": {
     "name": "test.geowiki",
@@ -46,6 +47,10 @@ File `test.geowiki`:
 ```
 
 ## Details
+### Global properties
+#### geowiki-version
+Specify the file version. Current: `0.1`.
+
 ### Styles
 #### stroke
 Specifies the paint of the stroke. Either `none` or a color, e.g. `#ff0000` (red).
