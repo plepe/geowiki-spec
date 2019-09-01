@@ -24,12 +24,16 @@ featureFields:
     name: Description
     type: textarea
 features:
-  - type: FeatureCollection
+  - type: FeatureCollection      # Layer with a feature (default stroke color red)
     style:
       stroke: "#ff0000"
     features:
-      - type: Feature
-        properties: {}
+      - type: Feature            # This is the feature
+        properties:
+          name: Test
+          description: |-
+            Longer description
+            with new lines
         geometry:
           type: LineString
           coordinates:
