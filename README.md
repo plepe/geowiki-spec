@@ -1,5 +1,5 @@
 # Specification of the Geowiki file format
-The Geowiki file format is valid GeoJSON with style extensions. Styling properties are inspired by SVG properties.
+The Geowiki file format is based on GeoJSON but saved as YAML (for better readability) with extensions (properties may be twig templates). Styling properties are inspired by SVG properties.
 
 The top-most object is a FeatureCollection which usually contains no features, but layers (which are FeatureCollection themselves). You can set a global default style. Also it has properties (name, description, license, list of authors). It specifies feature fields as template for feature properties.
 
@@ -9,41 +9,32 @@ Each layer is a FeatureCollection with properties (e.g. a name) and a default st
 Each feature can has properties, geometry and a style.
 
 File `test.geowiki`:
-```json
-{
-  "geowiki-version": "0.1",
-  "type": "FeatureCollection",
-  "properties": {
-    "name": "test.geowiki",
-    "description": "Just a test",
-    "license": "CC0-1.0"
-  },
-  "featureFields": {
-    "name": { "name": "Name", "type": "text" },
-    "description": { "name": "Description", "type": "textarea" }
-  },
-  "features": [
-    {
-      "type": "FeatureCollection",
-      "style": {
-        "stroke": "#ff0000"
-      },
-      "features": [
-        {
-          "type": "Feature",
-          "properties": {},
-          "geometry": {
-            "type": "LineString",
-            "coordinates": [
-              [ -27.070313, -0.878872 ],
-              [ -0.351562, 27.371767 ]
-            ]
-          }
-        }
-      ]
-    }
-  ]
-}
+```yaml
+geowiki-version: "0.1"
+type: FeatureCollection
+properties:
+  name: test.geowiki
+  description: Just a test
+  license: CC0-1.0
+featureFields:
+  name:
+    name: Name
+    type: text
+  description:
+    name: Description
+    type: textarea
+features:
+  - type: FeatureCollection
+    style:
+      stroke: "#ff0000"
+    features:
+      - type: Feature
+        properties: {}
+        geometry:
+          type: LineString
+          coordinates:
+            - [ -27.070313, -0.878872 ]
+            - [ -0.351562, 27.371767 ]
 ```
 
 ## Details
